@@ -1,13 +1,13 @@
 var api = require('./app')
 
 let options = {
-    coin: 'bitcoidn',
+    coin: 'bitcoin',
     currency: 'USD'
 }
 
 api.getByCoin(options, (req, res, err)=>{
     if(err){
-        console.log(err)
+        console.log(err.data, err.status, err.statusText)
     }else{
         console.log(req, res)
     }

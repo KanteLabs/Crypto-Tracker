@@ -10,7 +10,7 @@ api.getByCoin = (options, callback) => {
         let data = res.data;
         return callback(data, options, null)
     }).catch((err)=>{
-        return callback(null, null, err)
+        return callback(null, null, err.response)
     })
    
 }
