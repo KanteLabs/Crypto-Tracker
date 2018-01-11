@@ -7,11 +7,12 @@ api.getByCoin = (options, callback) => {
     let url = `https://api.coinmarketcap.com/v1/ticker/${coin}/?convert=${currency}`;
 
     axios.get(url).then((res)=>{
-        console.log(res)
+        let data = res.data;
+        return callback(data, options, null)
     }).catch((err)=>{
-        console.log(err)
+        return callback(null, null, err)
     })
-    return callback(data, coin, currency)
+   
 }
 
 module.exports = api;
