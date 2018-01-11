@@ -1,3 +1,4 @@
+const request = require('request');
 var api = {}
 
 api.getByCoin = (options, callback) => {
@@ -5,12 +6,10 @@ api.getByCoin = (options, callback) => {
     let currency = options.currency;
     let url = `https://api.coinmarketcap.com/v1/ticker/${coin}/?convert=${currency}`;
 
-    fetch(url)
-    .then((res)=>{
+    fetch(url).then((res)=>{
         console.log(res);
         return res;
-    })
-    .catch((err)=>{
+    }).catch((err)=>{
         console.log(err)
     })
 
