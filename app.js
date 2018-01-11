@@ -1,3 +1,3 @@
 var api = {}
 
-modules.exports = api;
+module.exports = api;
