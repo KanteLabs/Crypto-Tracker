@@ -1,7 +1,10 @@
 var api = {}
 
-api.getByCoin(coin, callback) = function(){
-    console.log(coin)
+api.getByCoin = (options, callback) => {
+    let coin = options.coin;
+    let currency = options.currency;
+
+    return callback("success", coin, currency)
 }
 
 module.exports = api;

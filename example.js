@@ -1,5 +1,10 @@
 var api = require('./app')
 
-api.getByCoin("eth", (req, res, err)=>{
-    console.log(...args)
+let options = {
+    coin: 'BITCOIN',
+    currency: 'USD'
+}
+
+api.getByCoin(options, (req, res, err)=>{
+    console.log(req, res, err)
 })
