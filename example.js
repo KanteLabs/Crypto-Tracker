@@ -1,7 +1,7 @@
 var api = require('./app')
 
 let options = {
-    coin: 'BITCOIN',
+    coin: 'bitcoin',
     currency: 'USD'
 }
 
