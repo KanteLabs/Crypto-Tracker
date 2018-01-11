@@ -1,4 +1,4 @@
-const request = require('request');
+const axios = require('axios');
 var api = {}
 
 api.getByCoin = (options, callback) => {
@@ -6,14 +6,12 @@ api.getByCoin = (options, callback) => {
     let currency = options.currency;
     let url = `https://api.coinmarketcap.com/v1/ticker/${coin}/?convert=${currency}`;
 
-    fetch(url).then((res)=>{
-        console.log(res);
-        return res;
-    }).catch((err)=>{
-        console.log(err)
+    request.get(url, (err, res, body)=>{
+       let data = JSON.parse(body);
+       
     })
 
-    return callback("success", coin, currency)
+    return callback(data, coin, currency)
 }
 
 module.exports = api;
