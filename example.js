@@ -1,4 +1,4 @@
-var api = require('./app')
+var api = require('./api')
 
 let options = {
     coin: 'bitcoin',
