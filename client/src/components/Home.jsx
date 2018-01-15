@@ -11,7 +11,7 @@ class Home extends Component{
     }
 
     componentDidMount() {
-        
+        !this.state.topFiveCoins ? this.grabTopFiveCoins() : null
     }
 
     grabTopFiveCoins(){
@@ -35,9 +35,10 @@ class Home extends Component{
     }
 
     render(){
+        const {topFiveCoinsLoaded} = this.state;
         return(
             <section className="home">
-                <CurrentMarketValues data={this.state.topFiveCoins}/>
+                {topFiveCoinsLoaded ? <CurrentMarketValues data={this.state.topFiveCoins}/> : null}
             </section>
         )
     }
