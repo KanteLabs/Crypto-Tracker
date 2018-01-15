@@ -4,7 +4,9 @@ import CurrentMarketValues from './CurrentMarketValues';
 class Home extends Component{
     render(){
         return(
-            <h1>Hello</h1>
+            <section className="home">
+                <CurrentMarketValues />
+            </section>
         )
     }
 }
