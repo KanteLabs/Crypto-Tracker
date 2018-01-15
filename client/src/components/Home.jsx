@@ -8,30 +8,41 @@ class Home extends Component{
             topFiveCoins: false,
             topFiveCoinsLoaded: false
         }
+        this.grabTopFiveCoins = this.grabTopFiveCoins.bind(this)
     }
 
     componentDidMount() {
         !this.state.topFiveCoins ? this.grabTopFiveCoins() : null
     }
 
+    shouldComponentUpdate(prev, next){
+        if(next.topFiveCoins == this.state.topFiveCoins){
+            console.log("no update");
+            return false;
+        }else{
+            console.log("update")
+            return true;
+        }
+    }
+
     grabTopFiveCoins(){
         let url = 'https://api.coinmarketcap.com/v1/ticker/?limit=5';
-
-        if(!this.state.topFiveCoinsLoaded){
-            fetch(url).then((res)=>{
-                res.json().then((data)=>{
-                    console.log(data)
-                    this.setState({
-                        topFiveCoins: data,
-                        topFiveCoinsLoaded: true
-                    })
-                }).catch(err=>console.log(err))
-            }).catch((err)=>{
-                console.log(err)
+        fetch(url).then((res)=>{
+            res.json().then((data)=>{
+                console.log(data)
+                this.setState({
+                    topFiveCoins: data,
+                    topFiveCoinsLoaded: true
+                })
+                return data;
+            }).then(()=>{
+                // setTimeout(this.grabTopFiveCoins, 10000);
             })
-        }else{
-
-        }
+            .catch(err=>console.log(err))
+            return res;
+        }).catch((err)=>{
+            console.log(err)
+        })
     }
 
     render(){

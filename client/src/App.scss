@@ -59,3 +59,31 @@ table {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
   }
+
+
+//   APP Start Css
+
+main#main{
+    height: 100vh;
+    color: white;
+    background: #fff;
+}
+
+#current-market{
+    margin-top: 1vh;
+    ul{
+        li{
+            background: rgba(39, 33, 42, 0.9);
+            width: 90vw;
+            margin: 0 auto;
+            margin-bottom: 1vh;
+            border-radius: 5px;
+            padding: 1em;
+            font-size: 0.875rem;
+            .top-text, .bottom-text{
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
