@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import SideMenu from './components/SideMenu';
+import Home from './components/Home';
 import { BrowserRouter as Router, Redirect, Switch, Route } from 'react-router-dom';
 import firebase from './config/firebase';
 import './App.css';
@@ -41,6 +42,7 @@ class App extends Component {
         <SideMenu openState={this.state.drawerStatus} changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
         <Router>
           <Switch>
+            <Route exact path="/" component={Home} />
           </Switch>
         </Router>
       </main>
