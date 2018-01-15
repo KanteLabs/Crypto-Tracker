@@ -3,7 +3,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Navbar from './components/Navbar';
-import Drawer from './components/Drawer';
+import SideMenu from './components/SideMenu';
 import firebase from './config/firebase';
 import './App.css';
 
@@ -29,16 +29,18 @@ class App extends Component {
 
   changeDrawerStatus = (status) => {
     console.log(status);
-    this.setState({
-      drawerStatus: status
-    })
+    if(status){
+      this.setState({ drawerStatus: status })
+    }else{
+      this.setState({ drawerStatus: false})
+    }
   }
 
   render() {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <Navbar changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
-        <Drawer openState={this.state.drawerStatus}/>
+        <SideMenu openState={this.state.drawerStatus} changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
       </MuiThemeProvider>
     );
   }

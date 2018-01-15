@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 
 const Navbar = (props) => {
     function handleMenuClick() {
-        alert()
+        props.changeDrawerStatus(true)
     }
     return(
         <AppBar
