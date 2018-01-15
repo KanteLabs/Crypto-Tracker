@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Navbar from './components/Navbar';
 import SideMenu from './components/SideMenu';
+import { BrowserRouter as Router, Redirect, Switch, Route } from 'react-router-dom';
 import firebase from './config/firebase';
 import './App.css';
 
@@ -38,10 +36,14 @@ class App extends Component {
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <main id="main">
         <Navbar changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
         <SideMenu openState={this.state.drawerStatus} changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
-      </MuiThemeProvider>
+        <Router>
+          <Switch>
+          </Switch>
+        </Router>
+      </main>
     );
   }
 }
