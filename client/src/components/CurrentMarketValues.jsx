@@ -4,6 +4,7 @@ const CurrentMarketValues = (props) => {
     const {data} = props;
     return(
         <div id="current-market">
+            <h1 className="page-title">Top 5 Coins</h1>
             <ul>
                 {data.map((coin, i)=>{
                     return(
