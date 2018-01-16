@@ -33,15 +33,19 @@ class AddCoinModal extends Component {
     };
 
     handleSubmit = () => {
-
+        
     }   
     
     handleChange = (e) => {
-        console.log(e.target.value)
+        let {name, value} = e.target;
+
+        console.log(name, value)
     }
 
     handleAutoComplete = (coin) => {
-        console.log(coin)
+        this.setState({
+            chosenCoin: coin
+        })
     }
     render() {
         const actions = [
@@ -75,18 +79,21 @@ class AddCoinModal extends Component {
                             floatingLabelText="Price Per Coin"
                             required={true}
                             onChange={(e)=>this.handleChange(e)}
+                            name="price"
                         />
                         <TextField
                             hintText="Enter Amount Bought"
                             floatingLabelText="Amount Bought"
                             required={true}
                             onChange={(e)=>this.handleChange(e)}
+                            name="amount"
                         />
                         <TextField
                             hintText="Enter Date"
                             floatingLabelText="Date Purchased"
                             required={true}
                             onChange={(e)=>this.handleChange(e)}
+                            name="date"
                         />
                         <FlatButton
                             label="Submit"
