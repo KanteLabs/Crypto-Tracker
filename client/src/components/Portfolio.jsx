@@ -43,7 +43,7 @@ class Portfolio extends Component {
         const paper = {
             padding: '1em',
             width: '90vw',
-            margin: 20,
+            margin: '20px auto',
             textAlign: 'center',
             display: 'flex',
             justifyContent: 'center',
