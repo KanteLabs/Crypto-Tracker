@@ -3002,7 +3002,7 @@ find-up@^2.0.0, find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
-firebase-admin@^5.4.3:
+firebase-admin@^5.8.0:
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-5.8.0.tgz#2363599ad44a495f3673ef5876e18cbed6b33385"
   dependencies:

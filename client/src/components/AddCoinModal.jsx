@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import AutoComplete from 'material-ui/AutoComplete';
+import coins from '../config/coins';
 
 class AddCoinModal extends Component {
     constructor(props){
@@ -37,34 +39,37 @@ class AddCoinModal extends Component {
     }   
     
     handleChange = () => {
-        
+
     }
     render() {
-    const actions = [
-        <FlatButton
-        label="Cancel"
-        primary={true}
-        onClick={this.handleClose}
-        />,
-        <FlatButton
-        label="Submit"
-        primary={true}
-        onClick={this.handleSubmit}
-        />,
-    ];
+        const actions = [
+            <FlatButton
+                label="Cancel"
+                primary={true}
+                onClick={this.handleClose}
+            />,
+            <FlatButton
+                label="Submit"
+                primary={true}
+                onClick={this.handleSubmit}
+            />,
+        ];
 
-    return (
-        <div>
+        return (
             <Dialog
                 title="Dialog With Actions"
                 actions={actions}
                 modal={true}
                 open={this.state.open}
             >
-                Only actions can close this dialog.
+                <AutoComplete
+                    floatingLabelText="Search for A coin"
+                    filter={AutoComplete.fuzzyFilter}
+                    dataSource={coins}
+                    maxSearchResults={5}
+                />
             </Dialog>
-        </div>
-    );
+        )
     }
 }
 
