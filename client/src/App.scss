@@ -80,13 +80,15 @@ main#main{
     }
     ul{
         li{
-            background: rgba(39, 33, 42, 0.9);
+            background: rgba(39,33,42,0.9);
             width: 90vw;
             margin: 0 auto;
             margin-bottom: 1vh;
             border-radius: 5px;
-            padding: 1em;
-            font-size: 0.875rem;
+            padding: 1.5em;
+            font-size: 0.775rem;
+            padding-bottom: 1.7em;
+            line-height: 1.5;
             .top-text, .bottom-text{
                 display: flex;
                 justify-content: space-between;
