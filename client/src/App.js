@@ -37,15 +37,15 @@ class App extends Component {
 
   render() {
     return (
-      <main id="main">
-        <Navbar changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
-        <SideMenu openState={this.state.drawerStatus} changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
-        <Router>
+      <Router>
+        <main id="main">
+          <Navbar changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
+          <SideMenu openState={this.state.drawerStatus} changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
           <Switch>
             <Route exact path="/" component={Home} />
           </Switch>
-        </Router>
-      </main>
+        </main>
+      </Router>
     );
   }
 }
