@@ -56,19 +56,21 @@ class AddCoinModal extends Component {
         ];
 
         return (
-            <Dialog
-                title="Dialog With Actions"
-                actions={actions}
-                modal={true}
-                open={this.state.open}
-            >
-                <AutoComplete
-                    floatingLabelText="Search for A coin"
-                    filter={AutoComplete.fuzzyFilter}
-                    dataSource={coins}
-                    maxSearchResults={5}
-                />
-            </Dialog>
+            <div id="dialog-holder">
+                <Dialog
+                    title="Dialog With Actions"
+                    actions={actions}
+                    modal={true}
+                    open={this.state.open}
+                >
+                    <AutoComplete
+                        floatingLabelText="Search for A coin"
+                        filter={AutoComplete.fuzzyFilter}
+                        dataSource={coins}
+                        maxSearchResults={5}
+                    />
+                </Dialog>
+            </div>
         )
     }
 }
