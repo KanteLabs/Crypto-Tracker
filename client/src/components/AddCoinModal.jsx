@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import AutoComplete from 'material-ui/AutoComplete';
+import {Dialog, AutoComplete, FlatButton, TextField} from 'material-ui';
 import coins from '../config/coins';
 
 class AddCoinModal extends Component {
@@ -68,6 +66,18 @@ class AddCoinModal extends Component {
                         filter={AutoComplete.fuzzyFilter}
                         dataSource={coins}
                         maxSearchResults={5}
+                    />
+                    <TextField
+                        hintText="Price in USD per Coin"
+                        floatingLabelText="Price Per Coin"
+                    />
+                    <TextField
+                        hintText="Enter Amount Bought"
+                        floatingLabelText="Amount Bought"
+                    />
+                    <TextField
+                        hintText="Enter Date"
+                        floatingLabelText="Date Purchased"
                     />
                 </Dialog>
             </div>
