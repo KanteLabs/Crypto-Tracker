@@ -11,8 +11,8 @@ const Navbar = (props) => {
     function handleMenuClick() {
         props.changeDrawerStatus(true)
     }
-    function handleTitleClick(){
-        <Redirect to="/" />
+    function handleTitleClick() {
+        return <Redirect to="/" />;
     }
     return(
         <AppBar

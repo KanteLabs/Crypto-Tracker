@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import SideMenu from './components/SideMenu';
 import Home from './components/Home';
+import Login from './components/Login';
 import { BrowserRouter as Router, Redirect, Switch, Route } from 'react-router-dom';
 import firebase from './config/firebase';
 import './App.css';
