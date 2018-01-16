@@ -2,7 +2,7 @@ import * as firebase from 'firebase';
 import firebaseui from 'firebaseui';
 
 export const uiConfig = {
-    signInSuccessUrl: '/profile',
+    signInSuccessUrl: '/portfolio',
     signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     {provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,requireDisplayName: true}
