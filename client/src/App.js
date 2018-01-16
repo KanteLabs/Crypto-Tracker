@@ -12,14 +12,19 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      drawerStatus: false
+      drawerStatus: false,
+      user: false,
+      authState: false
     }
   }
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user)=>{
       if (user) {
-        console.log(user)
+        this.setState({
+          user: user.toJSON(),
+          authState: true
+        })
       }else{
         console.log("not signed in")
       }
@@ -40,7 +45,7 @@ class App extends Component {
       <Router>
         <main id="main">
           <Navbar changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
-          <SideMenu openState={this.state.drawerStatus} changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
+          <SideMenu openState={this.state.drawerStatus} changeDrawerStatus={(status)=>this.changeDrawerStatus(status)} authState={this.state.authState}/>
           <Switch>
             <Route exact path="/" component={Home} />
           </Switch>
