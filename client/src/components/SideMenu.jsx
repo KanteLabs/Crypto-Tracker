@@ -12,7 +12,6 @@ class SideMenu extends Component {
     }
 
     shouldComponentUpdate(prev, next){
-        console.log(prev, next)
         if(prev.openState){
             return true;
         }else{
@@ -21,7 +20,6 @@ class SideMenu extends Component {
     }
 
     componentWillReceiveProps(prev, next){
-        console.log(prev, next)
         if(prev.openState){
             this.setState({open: true})
             return true;
@@ -45,9 +43,8 @@ class SideMenu extends Component {
                 docked={false}
                 onRequestChange={(open) => this.handleRequestChange({open})}
             >
-                <MenuItem>Menu Item</MenuItem>
-                <MenuItem>Menu Item 2</MenuItem>
-                <Link to="/login"><MenuItem>Login</MenuItem></Link>
+                 <Link to="/"><MenuItem>Home</MenuItem></Link>
+                {this.props.authState ? <Link to="/portfolio"><MenuItem>Portfolio</MenuItem></Link> :<Link to="/login"><MenuItem>Login</MenuItem></Link>}
             </Drawer>
         )
     }

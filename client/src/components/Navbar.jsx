@@ -1,5 +1,6 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
+import { Redirect } from 'react-router-dom';
 
 
 const Navbar = (props) => {
@@ -10,12 +11,16 @@ const Navbar = (props) => {
     function handleMenuClick() {
         props.changeDrawerStatus(true)
     }
+    function handleTitleClick(){
+        <Redirect to="/" />
+    }
     return(
         <AppBar
             style={style}
             title="Crypto Tracker"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
             onLeftIconButtonClick = {handleMenuClick}
+            onTitleClick = {handleTitleClick}
         />
     )
 }
