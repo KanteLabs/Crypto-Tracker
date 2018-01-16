@@ -19,6 +19,7 @@
 src/App.css.map
 src/.sass-cache/
 .css.map*
+firebase.js
 
 npm-debug.log*
 yarn-debug.log*
