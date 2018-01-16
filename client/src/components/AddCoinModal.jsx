@@ -12,7 +12,7 @@ class AddCoinModal extends Component {
 
     shouldComponentUpdate(prev, next){
         console.log(prev, next)
-        if(prev.modalOpen){
+        if(prev.modalOpen ){
             return true;
         }else{
             return false;
@@ -20,7 +20,7 @@ class AddCoinModal extends Component {
     }
     componentWillReceiveProps(prev, next){
         console.log(prev, next)
-        if(prev.modalOpen){
+        if(prev.modalOpen && next.open !== true){
             this.setState({open: true})
             return true;
         }else{
@@ -59,10 +59,11 @@ class AddCoinModal extends Component {
         return (
             <div id="dialog-holder">
                 <Dialog
-                    title="Dialog With Actions"
+                    title="Add A Coin"
                     actions={actions}
                     modal={true}
                     open={this.state.open}
+                    autoDetectWindowHeight={false}
                 >
                     <form onSubmit={this.handleSubmit} >
                         <AutoComplete
@@ -73,6 +74,7 @@ class AddCoinModal extends Component {
                             required={true}
                             onNewRequest={(value)=>this.handleAutoComplete(value)}
                             onUpdateInput={(value)=>this.handleAutoComplete(value)}
+                            className="autocomplete-form"
                         />
                         <TextField
                             hintText="Price in USD per Coin"
