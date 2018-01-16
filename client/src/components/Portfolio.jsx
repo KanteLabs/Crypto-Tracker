@@ -12,7 +12,8 @@ class Portfolio extends Component {
         this.state = {
             userUID: false,
             redirect: false,
-            page: ''
+            page: '',
+            modalOpen: false
         }
     }
 
@@ -31,6 +32,12 @@ class Portfolio extends Component {
         })
     }
 
+    handleAddCoinModal = () => {
+        this.setState({
+            modalOpen: true
+        })
+    }
+
     render(){
         const {redirect, page} = this.state;
         const paper = {
@@ -46,10 +53,10 @@ class Portfolio extends Component {
             <section id="portfolio">
                 {redirect ? <Redirect to={page} />: null}
                 <div className="page-cointainer">
-                    <Paper style={paper} zDepth={3} id="add-coin">
+                    <Paper style={paper} zDepth={3} id="add-coin" onClick={this.handleAddCoinModal}>
                         <i className="material-icons">add_circle</i><p> Add A Coin</p>
                     </Paper>
-                    <AddCoinModal />
+                    <AddCoinModal modalOpen={this.state.modalOpen} />
                 </div>
                 {/* {this.renderPage()} */}
             </section>

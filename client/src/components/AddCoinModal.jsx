@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 
 class AddCoinModal extends Component {
     constructor(props){
         super(props);
         this.state = {
-            open: false
+            open: this.props.modalOpen
+        }
+    }
+
+    shouldComponentUpdate(prev, next){
+        console.log(prev, next)
+        if(prev.modalOpen){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    componentWillReceiveProps(prev, next){
+        console.log(prev, next)
+        if(prev.modalOpen){
+            this.setState({open: true})
+            return true;
+        }else{
+            return false;
         }
     }
 
@@ -36,15 +53,14 @@ class AddCoinModal extends Component {
 
     return (
         <div>
-        <RaisedButton label="Modal Dialog" onClick={this.handleOpen} />
-        <Dialog
-            title="Dialog With Actions"
-            actions={actions}
-            modal={true}
-            open={this.state.open}
-        >
-            Only actions can close this dialog.
-        </Dialog>
+            <Dialog
+                title="Dialog With Actions"
+                actions={actions}
+                modal={true}
+                open={this.state.open}
+            >
+                Only actions can close this dialog.
+            </Dialog>
         </div>
     );
     }
