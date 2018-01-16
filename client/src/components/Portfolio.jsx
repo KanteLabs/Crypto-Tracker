@@ -40,8 +40,8 @@ class Portfolio extends Component {
             alignItems: 'center',
           };
         return(
-            <Paper style={paper} zDepth={3}>
-                <i className="material-icons">add_circle</i><p>Add A Coin</p>
+            <Paper style={paper} zDepth={3} id="add-coin">
+                <i className="material-icons">add_circle</i><p> Add A Coin</p>
             </Paper>
         )
     }

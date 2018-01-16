@@ -97,3 +97,16 @@ main#main{
         }
     }
 }
+
+section#portfolio{
+    #add-coin{
+        &:hover{
+            cursor: pointer;
+            background-color: rgba(187, 187, 187, 0.5);
+        }
+        &:active{
+            position: relative;
+            top: 4px;
+        }
+    }
+}
