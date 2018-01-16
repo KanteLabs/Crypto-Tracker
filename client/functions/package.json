@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "firebase-admin": "~5.4.2",
-    "firebase-functions": "^0.7.1",
+    "firebase-functions": "^0.7.5",
     "grpc": "^1.8.0"
   },
   "private": true

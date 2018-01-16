@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from '../config/firebase';
+import AddCoinModal from './AddCoinModal';
 import { Redirect } from 'react-router-dom';
 import {Paper} from 'material-ui';
 
@@ -29,7 +30,9 @@ class Portfolio extends Component {
             }
         })
     }
-    renderPage(){
+
+    render(){
+        const {redirect, page} = this.state;
         const paper = {
             padding: '1em',
             width: '90vw',
@@ -40,17 +43,15 @@ class Portfolio extends Component {
             alignItems: 'center',
           };
         return(
-            <Paper style={paper} zDepth={3} id="add-coin">
-                <i className="material-icons">add_circle</i><p> Add A Coin</p>
-            </Paper>
-        )
-    }
-    render(){
-        const {redirect, page} = this.state;
-        return(
             <section id="portfolio">
                 {redirect ? <Redirect to={page} />: null}
-                {this.renderPage()}
+                <div className="page-cointainer">
+                    <Paper style={paper} zDepth={3} id="add-coin">
+                        <i className="material-icons">add_circle</i><p> Add A Coin</p>
+                    </Paper>
+                    <AddCoinModal />
+                </div>
+                {/* {this.renderPage()} */}
             </section>
         )
     }

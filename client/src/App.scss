@@ -102,7 +102,7 @@ section#portfolio{
     #add-coin{
         &:hover{
             cursor: pointer;
-            background-color: rgba(187, 187, 187, 0.5);
+            background-color: rgba(187, 187, 187, 0.5) !important;
         }
         &:active{
             position: relative;
