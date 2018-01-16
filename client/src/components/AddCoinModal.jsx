@@ -28,14 +28,17 @@ class AddCoinModal extends Component {
         }
     }
 
-    handleOpen = () => {
-    this.setState({open: true});
+    handleClose = () => {
+        this.setState({open: false});
     };
 
-    handleClose = () => {
-    this.setState({open: false});
-    };
+    handleSubmit = () => {
+
+    }   
     
+    handleChange = () => {
+        
+    }
     render() {
     const actions = [
         <FlatButton
@@ -46,8 +49,7 @@ class AddCoinModal extends Component {
         <FlatButton
         label="Submit"
         primary={true}
-        disabled={true}
-        onClick={this.handleClose}
+        onClick={this.handleSubmit}
         />,
     ];
 
