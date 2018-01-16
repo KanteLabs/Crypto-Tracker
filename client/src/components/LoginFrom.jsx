@@ -1,5 +1,5 @@
 import React from 'react';
-import '../firebase.css'
+import '../firebaseui.css'
 import {ui, uiConfig} from '../config/firebaseui';
 
 const LoginForm = (props) => {
