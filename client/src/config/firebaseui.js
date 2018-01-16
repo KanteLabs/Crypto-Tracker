@@ -10,6 +10,6 @@ export const uiConfig = {
 }
 
 // Initialize the FirebaseUI Widget using Firebase.
-const ui = new firebaseui.auth.AuthUI(firebase.auth());
+export const ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-export default ui;
+// export default ui;

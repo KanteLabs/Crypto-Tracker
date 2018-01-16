@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import firebase from '../config/firebase';
-import ui from '../config/firebaseui';
-import LoginForm from './LoginForm';
+import LoginForm from './LoginFrom';
 import RegisterForm from './RegisterForm';
+
+var db = firebase.firestore();
 
 class Login extends Component {
     constructor(props){

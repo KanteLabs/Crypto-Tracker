@@ -48,7 +48,8 @@ class App extends Component {
           <Navbar changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
           <SideMenu openState={this.state.drawerStatus} changeDrawerStatus={(status)=>this.changeDrawerStatus(status)} authState={this.state.authState}/>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path='/' component={Home} />
+            <Route exact path="/login" render={() => <Login /> } />
           </Switch>
         </main>
       </Router>
