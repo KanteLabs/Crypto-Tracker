@@ -47,6 +47,12 @@ class AddCoinModal extends Component {
                         coin: this.state.chosenCoin
                     }
                 }, {merge: true})
+                .then((res)=>{
+                    console.log(res)
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
             }
         })
     }   
@@ -97,6 +103,7 @@ class AddCoinModal extends Component {
                             required={true}
                             onChange={(e)=>this.handleChange(e)}
                             name="price"
+                            type="number"
                         />
                         <TextField
                             hintText="Enter Amount Bought"
@@ -104,13 +111,14 @@ class AddCoinModal extends Component {
                             required={true}
                             onChange={(e)=>this.handleChange(e)}
                             name="amount"
+                            type="number"
                         />
                         <TextField
-                            hintText="Enter Date"
                             floatingLabelText="Date Purchased"
                             required={true}
                             onChange={(e)=>this.handleChange(e)}
                             name="date"
+                            type="date"
                         />
                         <FlatButton
                             label="Submit"
