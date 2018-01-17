@@ -48,7 +48,7 @@ class AddCoinModal extends Component {
                     }
                 }, {merge: true})
                 .then((res)=>{
-                    console.log(res)
+                    window.location.reload();
                 })
                 .catch((err)=>{
                     console.log(err)
