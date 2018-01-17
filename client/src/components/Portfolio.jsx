@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from '../config/firebase';
 import AddCoinModal from './AddCoinModal';
+import TrackedCoins from './TrackedCoins';
 import { Redirect } from 'react-router-dom';
 import {Paper} from 'material-ui';
 
@@ -57,8 +58,8 @@ class Portfolio extends Component {
                         <i className="material-icons">add_circle</i><p> Add A Coin</p>
                     </Paper>
                     <AddCoinModal modalOpen={this.state.modalOpen} />
+                    <TrackedCoins />
                 </div>
-                {/* {this.renderPage()} */}
             </section>
         )
     }
