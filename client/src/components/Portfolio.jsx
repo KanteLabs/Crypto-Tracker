@@ -14,16 +14,28 @@ class Portfolio extends Component {
             userUID: false,
             redirect: false,
             page: '',
-            modalOpen: false
+            modalOpen: false,
+            authState: false
         }
     }
 
     componentDidMount() {
         firebase.auth().onAuthStateChanged((user)=>{
             if(user){
+                let coinArray = [];
                 this.setState({
-                    userID: user.uid
+                    userID: user.uid,
+                    authState: true
                 })
+                db.collection('users').doc(user.uid).collection('portfolio').get().then((res)=>{
+                    res.forEach((coin)=>{
+                        return coinArray[coin.id] = coin.data();
+                    })
+                    this.setState({
+                        coinData: coinArray
+                    })
+                    console.log(coinArray)
+                }).catch((err)=>{console.log(err)})
             }else{
                 this.setState({
                     redirect: true,
@@ -38,7 +50,9 @@ class Portfolio extends Component {
             modalOpen: true
         })
     }
+    renderCoins = () =>{
 
+    }
     render(){
         const {redirect, page} = this.state;
         const paper = {
@@ -58,7 +72,7 @@ class Portfolio extends Component {
                         <i className="material-icons">add_circle</i><p> Add A Coin</p>
                     </Paper>
                     <AddCoinModal modalOpen={this.state.modalOpen} />
-                    <TrackedCoins />
+                    {this.renderCoins()}
                 </div>
             </section>
         )

@@ -14,7 +14,6 @@ class AddCoinModal extends Component {
     }
 
     shouldComponentUpdate(prev, next){
-        console.log(prev, next)
         if(prev.modalOpen ){
             return true;
         }else{
@@ -22,7 +21,6 @@ class AddCoinModal extends Component {
         }
     }
     componentWillReceiveProps(prev, next){
-        console.log(prev, next)
         if(prev.modalOpen && next.open !== true){
             this.setState({open: true})
             return true;
