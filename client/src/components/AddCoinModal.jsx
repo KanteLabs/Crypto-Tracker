@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import firebase from '../config/firebase';
 import {Dialog, AutoComplete, FlatButton, TextField} from 'material-ui';
 import coins from '../config/coins';
+
+var db = firebase.firestore();
 
 class AddCoinModal extends Component {
     constructor(props){
@@ -32,14 +35,27 @@ class AddCoinModal extends Component {
         this.setState({open: false});
     };
 
-    handleSubmit = () => {
-        
+    handleSubmit = (e) => {
+        e.preventDefault();
+        firebase.auth().onAuthStateChanged((user)=>{
+            if(user){
+                db.collection('users').doc(user.uid).collection('portfolio').doc(this.state.chosenCoin).set({
+                    [new Date().getTime()]: {
+                        price: this.state.price,
+                        amount: this.state.amount,
+                        date: this.state.date,
+                        coin: this.state.chosenCoin
+                    }
+                }, {merge: true})
+            }
+        })
     }   
     
     handleChange = (e) => {
         let {name, value} = e.target;
-
-        console.log(name, value)
+        this.setState({
+            [name]: value
+        })
     }
 
     handleAutoComplete = (coin) => {
@@ -74,7 +90,6 @@ class AddCoinModal extends Component {
                             required={true}
                             onNewRequest={(value)=>this.handleAutoComplete(value)}
                             onUpdateInput={(value)=>this.handleAutoComplete(value)}
-                            className="autocomplete-form"
                         />
                         <TextField
                             hintText="Price in USD per Coin"
