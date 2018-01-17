@@ -20,9 +20,9 @@ class Portfolio extends Component {
     }
 
     componentDidMount() {
+        let coinArray = {};
         firebase.auth().onAuthStateChanged((user)=>{
             if(user){
-                let coinArray = [];
                 this.setState({
                     userID: user.uid,
                     authState: true
@@ -36,6 +36,7 @@ class Portfolio extends Component {
                     })
                     console.log(coinArray)
                 }).catch((err)=>{console.log(err)})
+                
             }else{
                 this.setState({
                     redirect: true,
