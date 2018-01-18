@@ -53,7 +53,6 @@ class Portfolio extends Component {
     }
     closeModal=(status)=>{
        if(status){
-           console.log("close")
            this.setState({
             modalOpen: false
            })
