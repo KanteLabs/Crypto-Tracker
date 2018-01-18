@@ -14,13 +14,15 @@ class AddCoinModal extends Component {
     }
 
     shouldComponentUpdate(prev, next){
+        console.log(prev, next)
         if(prev.modalOpen ){
             return true;
         }else{
-            return false;
+            return true;
         }
     }
     componentWillReceiveProps(prev, next){
+        console.log(prev, next)
         if(prev.modalOpen && next.open !== true){
             this.setState({open: true})
             return true;
@@ -31,6 +33,7 @@ class AddCoinModal extends Component {
 
     handleClose = () => {
         this.setState({open: false});
+        this.props.closeModal(true);
     };
 
     handleSubmit = (e) => {

@@ -51,6 +51,14 @@ class Portfolio extends Component {
             modalOpen: true
         })
     }
+    closeModal=(status)=>{
+       if(status){
+           console.log("close")
+           this.setState({
+            modalOpen: false
+           })
+       }
+    }
     renderCoins = () =>{
 
     }
@@ -72,7 +80,7 @@ class Portfolio extends Component {
                     <Paper style={paper} zDepth={3} id="add-coin" onClick={this.handleAddCoinModal}>
                         <i className="material-icons">add_circle</i><p> Add A Coin</p>
                     </Paper>
-                    <AddCoinModal modalOpen={this.state.modalOpen} />
+                    <AddCoinModal modalOpen={this.state.modalOpen} closeModal={(status)=>this.closeModal(status)}/>
                     {this.renderCoins()}
                 </div>
             </section>
