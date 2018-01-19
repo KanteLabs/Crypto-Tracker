@@ -6,6 +6,8 @@
 - Users can:
     - [x] Login/SignUp
     - [x] Track Assets/Transactions
+- [ ] View A Single Coin Overview
+- [ ] Integrate Visualization of Coin Value
 
 
 
