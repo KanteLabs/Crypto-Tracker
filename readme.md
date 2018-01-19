@@ -1,8 +1,13 @@
 #  Crypto Tracker
 
 ### Project Stricture / Features - M.V.P
-These are some of the features that I plan on tackling as I build this project
-- 
+- [x] View Top Trending Coins
+- [ ] Connect and View EtherWallet
+- Users can:
+    - [x] Login/SignUp
+    - [x] Track Assets/Transactions
+
+
 
 ## Installation 
 1. Run yarn install in the client folder.

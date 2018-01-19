@@ -15,7 +15,8 @@ class Portfolio extends Component {
             redirect: false,
             page: '',
             modalOpen: false,
-            authState: false
+            authState: false,
+            coinData: false
         }
     }
 
@@ -32,7 +33,7 @@ class Portfolio extends Component {
                         return coinArray[coin.id] = coin.data();
                     })
                     this.setState({
-                        coinData: coinArray
+                        coinData: coinArray,
                     })
                     console.log(coinArray)
                 }).catch((err)=>{console.log(err)})
@@ -59,7 +60,16 @@ class Portfolio extends Component {
        }
     }
     renderCoins = () =>{
-
+       let {coinData} = this.state;
+        if(Object.keys(coinData).length > 0){
+            return(
+                <h1>Render Coins</h1>
+            )
+        }else{
+            return (
+                <h1>Loading</h1>
+            );
+        }
     }
     render(){
         const {redirect, page} = this.state;
