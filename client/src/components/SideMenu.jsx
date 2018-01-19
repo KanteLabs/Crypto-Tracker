@@ -45,6 +45,7 @@ class SideMenu extends Component {
             >
                  <Link to="/"><MenuItem>Home</MenuItem></Link>
                 {this.props.authState ? <Link to="/portfolio"><MenuItem>Portfolio</MenuItem></Link> :<Link to="/login"><MenuItem>Login</MenuItem></Link>}
+                {this.props.authState ? <Link to="/ether-balance"><MenuItem>ETH Balance</MenuItem></Link> : null}
             </Drawer>
         )
     }
