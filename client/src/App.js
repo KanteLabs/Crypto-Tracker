@@ -4,6 +4,7 @@ import SideMenu from './components/SideMenu';
 import Home from './components/Home';
 import Login from './components/Login';
 import Portfolio from './components/Portfolio';
+import EtherBalance from './components/EtherBalance';
 import { BrowserRouter as Router, Redirect, Switch, Route } from 'react-router-dom';
 import firebase from './config/firebase';
 import './App.css';
@@ -51,6 +52,7 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path="/portfolio" render={() => <Portfolio /> } />
             <Route exact path="/login" render={() => <Login /> } />
+            <Route exact path="/ether-balance" render={() => <EtherBalance /> } />
           </Switch>
         </main>
       </Router>
