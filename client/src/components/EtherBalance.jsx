@@ -31,7 +31,24 @@ class EtherBalance extends Component {
 
     handleSubmit=(e)=>{
         e.preventDefault();
-        
+        let regExp = /^0x[a-fA-F0-9]{40}$/;
+        let {address} = this.state;
+
+        address.match(regExp) ? this.submitAddress(address) : null  
+    }
+
+    submitAddress=(address)=>{
+        firebase.auth().onAuthStateChanged((user)=>{
+            if(user){
+                db.collection('users').doc(user.uid).update({
+                    eth_address: address
+                }).then((res)=>{
+                    console.log(res)
+                }).catch((err)=>{
+                    console.log(err)
+                })
+            }
+        })
     }
 
     handleChange=(e)=>{
