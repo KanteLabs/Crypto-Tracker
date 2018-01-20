@@ -10,11 +10,11 @@ admin.initializeApp(functions.config().firebase);
 //  response.send("Hello from Firebase!");
 // });
 
-exports.etherBalance = functions.https.onRequest((req, res)=>{
+exports.balance = functions.https.onRequest((req, res)=>{
     let apiKey = functions.config().etherscan.key;
-    axios.get(`https://api.etherscan.io/api?module=account&action=balance&address=0xcf82fdd676ffebf4f5ebe344b06f76110be6942b&tag=latest&apikey=${apiKey}`).then((data)=>{
+    axios.get(`https://api.etherscan.io/api?module=account&action=balance&address=&tag=latest&apikey=${apiKey}`).then((data)=>{
         console.log(data.data)
-        return res.send(data.data)
+        res.send(data.data)
     }).catch((err)=>{
         console.log(err)
         return res.send(err)

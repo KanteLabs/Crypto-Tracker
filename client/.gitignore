@@ -21,6 +21,7 @@ App.css.map
 src/.sass-cache/
 firebase.js
 .runtimeconfig.json
+api-keys.js
 
 npm-debug.log*
 yarn-debug.log*
