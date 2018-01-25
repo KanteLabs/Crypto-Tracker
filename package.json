@@ -8,9 +8,18 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "foreman": "^2.0.0",
-    "marked": "^0.3.12",
     "mongoose": "^5.0.1",
-    "nodemon": "^1.14.11"
+    "nodemon": "^1.14.11",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express-session": "^1.15.4",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {},
   "scripts": {
