@@ -1,0 +1,121 @@
+const axios = require("axios");
+var api = {};
+
+api.getByCoin = (options, callback) => {
+    let coin = options.coin;
+    let currency = options.currency;
+    let url = `https://api.coinmarketcap.com/v1/ticker/${coin}/?convert=${currency}`;
+
+    axios.get(url).then((res)=>{
+        let data = res.data;
+        return callback(data, options, null)
+    }).catch((err)=>{
+        return callback(null, null, err.response)
+    })
+   
+}
+
+module.exports = api;
+
+var api = require('./api')
+
+let options = {
+    coin: 'bitcoin',
+    currency: 'USD'
+}
+
+api.getByCoin(options, (req, res, err)=>{
+    if(err){
+        console.log(err.data, err.status, err.statusText)
+    }else{
+        console.log(req, res)
+    }
+})
+
+[
+    {
+        "id": "bitcoin", 
+        "name": "Bitcoin", 
+        "symbol": "BTC", 
+        "rank": "1", 
+        "price_usd": "13747.8", 
+        "price_btc": "1.0", 
+        "24h_volume_usd": "11088000000.0", 
+        "market_cap_usd": "231008751435", 
+        "available_supply": "16803325.0", 
+        "total_supply": "16803325.0", 
+        "max_supply": "21000000.0", 
+        "percent_change_1h": "-0.85", 
+        "percent_change_24h": "-4.58", 
+        "percent_change_7d": "-15.27", 
+        "last_updated": "1515985163"
+    }, 
+    {
+        "id": "ethereum", 
+        "name": "Ethereum", 
+        "symbol": "ETH", 
+        "rank": "2", 
+        "price_usd": "1351.98", 
+        "price_btc": "0.098075", 
+        "24h_volume_usd": "4895350000.0", 
+        "market_cap_usd": "131123871474", 
+        "available_supply": "96986547.0", 
+        "total_supply": "96986547.0", 
+        "max_supply": null, 
+        "percent_change_1h": "-0.72", 
+        "percent_change_24h": "-2.68", 
+        "percent_change_7d": "12.92", 
+        "last_updated": "1515985149"
+    }, 
+    {
+        "id": "ripple", 
+        "name": "Ripple", 
+        "symbol": "XRP", 
+        "rank": "3", 
+        "price_usd": "1.85945", 
+        "price_btc": "0.00013489", 
+        "24h_volume_usd": "2005930000.0", 
+        "market_cap_usd": "72033499100.0", 
+        "available_supply": "38739142811.0", 
+        "total_supply": "99993093880.0", 
+        "max_supply": "100000000000", 
+        "percent_change_1h": "-0.2", 
+        "percent_change_24h": "-5.88", 
+        "percent_change_7d": "-39.45", 
+        "last_updated": "1515985141"
+    }, 
+    {
+        "id": "bitcoin-cash", 
+        "name": "Bitcoin Cash", 
+        "symbol": "BCH", 
+        "rank": "4", 
+        "price_usd": "2537.21", 
+        "price_btc": "0.184054", 
+        "24h_volume_usd": "989470000.0", 
+        "market_cap_usd": "42910183544.0", 
+        "available_supply": "16912350.0", 
+        "total_supply": "16912350.0", 
+        "max_supply": "21000000.0", 
+        "percent_change_1h": "-0.5", 
+        "percent_change_24h": "-6.48", 
+        "percent_change_7d": "-5.69", 
+        "last_updated": "1515985152"
+    }, 
+    {
+        "id": "cardano", 
+        "name": "Cardano", 
+        "symbol": "ADA", 
+        "rank": "5", 
+        "price_usd": "0.811858", 
+        "price_btc": "0.00005889", 
+        "24h_volume_usd": "174082000.0", 
+        "market_cap_usd": "21049099633.0", 
+        "available_supply": "25927070538.0", 
+        "total_supply": "31112483745.0", 
+        "max_supply": "45000000000.0", 
+        "percent_change_1h": "-2.06", 
+        "percent_change_24h": "-3.46", 
+        "percent_change_7d": "-17.11", 
+        "last_updated": "1515985154"
+    }
+]

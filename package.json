@@ -1,0 +1,29 @@
+{
+  "name": "portfolio-watcher",
+  "version": "1.0.0",
+  "description": "- [x] View Top Trending Coins\r - [ ] Connect and View EtherWallet\r - Users can:\r     - [x] Login/SignUp\r     - [x] Track Assets/Transactions\r - [ ] View A Single Coin Overview\r - [ ] Integrate Visualization of Coin Value",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "foreman": "^2.0.0",
+    "marked": "^0.3.12",
+    "mongoose": "^5.0.1",
+    "nodemon": "^1.14.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KanteLabs/portfolio-watcher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KanteLabs/portfolio-watcher/issues"
+  },
+  "homepage": "https://github.com/KanteLabs/portfolio-watcher#readme"
+}
