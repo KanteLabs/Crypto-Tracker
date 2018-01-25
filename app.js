@@ -1,18 +1,19 @@
-const express = require('express');
-const logger = require('morgan');
-const path = require('path');
-const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 const passport = require('passport');
+const mongoose = require('mongoose');
+const express = require('express');
+const logger = require('morgan');
+const path = require('path');
 
 const app = express();
 require('dotenv').config();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(session({
@@ -22,16 +23,19 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+    next();
+   });
 
 // static files
 app.use(express.static('public'));
 
-// views
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
 // set the port, either from an environmental variable or manually
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 // tell the app to listen on that particular port
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
@@ -39,9 +43,8 @@ app.listen(port, () => {
 
 // Our index route!
 app.get('/', (req, res) => {
-  res.render('index', {
-    message: 'App page!',
-    data: false
+  res.send({
+      message: 'hi'
   })
 })
 
