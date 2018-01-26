@@ -12,7 +12,7 @@ const TrackedCoins = (props) => {
                 return(
                     <ul key={i} id={`coin-list ${coin}`}>
                         {Object.values(coinData[coin]).map((item, x)=>{
-                            return <Coin coin={item} key={x} x={x}/>
+                            return <Coin coin={item} key={x} x={x} />
                         })}
                     </ul>
                 )

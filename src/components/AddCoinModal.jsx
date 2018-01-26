@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from '../config/firebase';
 import {Dialog, AutoComplete, FlatButton, TextField} from 'material-ui';
-import coins from '../config/coins';
+import coinSymbols from '../config/coinSymbols';
 
 var db = firebase.firestore();
 
@@ -38,7 +38,7 @@ class AddCoinModal extends Component {
         e.preventDefault();
         firebase.auth().onAuthStateChanged((user)=>{
             if(user){
-                db.collection('users').doc(user.uid).collection('portfolio').doc(this.state.chosenCoin).set({
+                db.collection('users').doc(user.uid).collection('portfolio').doc(this.state.chosenCoin.textKey).set({
                     [new Date().getTime()]: {
                         price: this.state.price,
                         amount: this.state.amount,
@@ -77,6 +77,11 @@ class AddCoinModal extends Component {
             />
         ];
 
+        const dataSourceConfig = {
+            text: 'textKey',
+            value: 'valueKey',
+          };
+
         return (
             <div id="dialog-holder">
                 <Dialog
@@ -90,7 +95,8 @@ class AddCoinModal extends Component {
                         <AutoComplete
                             floatingLabelText="Search for A coin"
                             filter={AutoComplete.fuzzyFilter}
-                            dataSource={coins}
+                            dataSource={coinSymbols}
+                            dataSourceConfig={dataSourceConfig}
                             maxSearchResults={5}
                             required={true}
                             onNewRequest={(value)=>this.handleAutoComplete(value)}

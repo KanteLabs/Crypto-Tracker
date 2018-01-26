@@ -26,7 +26,7 @@ class Home extends Component{
     }
 
     grabTopFiveCoins(){
-        let url = 'https://api.coinmarketcap.com/v1/ticker/?limit=5';
+        let url = 'https://api.coinmarketcap.com/v1/ticker/?limit=10';
         fetch(url).then((res)=>{
             res.json().then((data)=>{
                 console.log(data)
@@ -36,7 +36,7 @@ class Home extends Component{
                 })
                 return data;
             }).then(()=>{
-                // setTimeout(this.grabTopFiveCoins, 10000);
+                setTimeout(this.grabTopFiveCoins, 300000);
             })
             .catch(err=>console.log(err))
             return res;
