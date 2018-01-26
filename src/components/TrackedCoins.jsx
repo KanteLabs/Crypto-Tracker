@@ -33,6 +33,15 @@ const TrackedCoins = (props) => {
             <ul>
                 {Object.keys(coinData).map((coin, i)=>{
                     console.log(coin, coinData[coin])
+                    return(
+                        <li className="coin" id={coin} key={i}>
+                            {Object.values(coinData[coin]).map((item, x)=>{
+                                return(
+                                    <p className="item" key={x}>{item.amount}</p>
+                                )
+                            })}
+                        </li>
+                    )
                 })}
             </ul>
         </div>
