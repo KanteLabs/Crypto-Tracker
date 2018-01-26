@@ -1,15 +1,21 @@
-const methodOverride = require('method-override');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
+const express = require('express');
+const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const mongoose = require('mongoose');
-const express = require('express');
 const logger = require('morgan');
-const path = require('path');
-
-const app = express();
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const methodOverride = require('method-override');
 require('dotenv').config();
+
+// Database Connection
+mongoose.connect(process.env.MONGO_URL).then(()=>{
+    console.log("server connected")
+}).catch((err)=>{
+    console.log(err);
+})
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
