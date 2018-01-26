@@ -24,9 +24,12 @@ class TrackedCoins extends Component {
     grabCoinData = (coin) => {
         let url = `https://api.coinmarketcap.com/v1/ticker/${coin}/?convert=USD`;
 
-        axios.get(url)
-        .then((res)=>{
+        axios.get(url).then((res)=>{
             console.log(res.data)
+            this.setState({
+                [res.data.name]: res.data
+            })
+            return res.data;
         }).then(()=>{
             setTimeout(this.grabCoinData, 300000);
         }).catch((err)=>{
