@@ -63,7 +63,7 @@ class Portfolio extends Component {
        let {coinData} = this.state;
         if(Object.keys(coinData).length > 0){
             return(
-                <h1>Render Coins</h1>
+                <TrackedCoins coinData={coinData} />
             )
         }else{
             return (
