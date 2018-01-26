@@ -1,0 +1,42 @@
+[debug] [2018-01-19T17:22:28.903Z] ----------------------------------------------------------------------
+[debug] [2018-01-19T17:22:28.905Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\watch\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only hosting,functions
+[debug] [2018-01-19T17:22:28.906Z] CLI Version:   3.16.0
+[debug] [2018-01-19T17:22:28.906Z] Platform:      win32
+[debug] [2018-01-19T17:22:28.906Z] Node Version:  v9.2.1
+[debug] [2018-01-19T17:22:28.906Z] Time:          Fri Jan 19 2018 12:22:28 GMT-0500 (Eastern Standard Time)
+[debug] [2018-01-19T17:22:28.906Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-19T17:22:28.926Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-19T17:22:28.928Z] > authorizing via signed-in user
+[debug] [2018-01-19T17:22:28.933Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/crypto-watcher-694b9  
+  
+ Fri Jan 19 2018 12:22:28 GMT-0500 (Eastern Standard Time)
+[debug] [2018-01-19T17:22:29.657Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-19T17:22:29.658Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/crypto-watcher-694b9/tokens  
+  
+ Fri Jan 19 2018 12:22:29 GMT-0500 (Eastern Standard Time)
+[debug] [2018-01-19T17:22:30.022Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\watch\Documents\GitHub\portfolio-watcher\client'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-01-19T17:22:31.233Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/crypto-watcher-694b9  
+  
+ Fri Jan 19 2018 12:22:31 GMT-0500 (Eastern Standard Time)
+[debug] [2018-01-19T17:22:31.233Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/crypto-watcher-694b9/apiKeys  
+  
+ Fri Jan 19 2018 12:22:31 GMT-0500 (Eastern Standard Time)
+[debug] [2018-01-19T17:22:31.234Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/crypto-watcher-694b9  
+  
+ Fri Jan 19 2018 12:22:31 GMT-0500 (Eastern Standard Time)
+[debug] [2018-01-19T17:22:31.527Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-19T17:22:31.529Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-19T17:22:31.531Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/873840886181/clients/_:getWebAppConfig  
+  
+ Fri Jan 19 2018 12:22:31 GMT-0500 (Eastern Standard Time)
+[debug] [2018-01-19T17:22:31.607Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-19T17:22:31.840Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] +  hosting: Local server: http://localhost:5000
+
+[info] +  functions: balance: http://localhost:5001/crypto-watcher-694b9/us-central1/balance
