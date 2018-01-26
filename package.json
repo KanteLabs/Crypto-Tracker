@@ -1,39 +1,24 @@
 {
-  "name": "portfolio-watcher",
-  "version": "1.0.0",
-  "description": "- [x] View Top Trending Coins\r - [ ] Connect and View EtherWallet\r - Users can:\r     - [x] Login/SignUp\r     - [x] Track Assets/Transactions\r - [ ] View A Single Coin Overview\r - [ ] Integrate Visualization of Coin Value",
-  "main": "index.js",
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "axios": "^0.17.1",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
-    "dotenv": "^4.0.0",
-    "ejs": "^2.5.6",
-    "express": "^4.16.2",
-    "express-session": "^1.15.4",
-    "foreman": "^2.0.0",
-    "method-override": "^2.3.9",
-    "mongodb": "^3.0.1",
-    "mongoose": "^5.0.1",
-    "morgan": "^1.8.2",
-    "nodemon": "^1.14.11",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "path": "^0.12.7"
+    "firebase": "^4.8.2",
+    "firebase-admin": "^5.8.0",
+    "firebase-functions": "^0.7.4",
+    "firebaseui": "^2.5.1",
+    "material-ui": "^0.20.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17",
+    "react-tap-event-plugin": "^3.0.2"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KanteLabs/portfolio-watcher.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/KanteLabs/portfolio-watcher/issues"
-  },
-  "homepage": "https://github.com/KanteLabs/portfolio-watcher#readme"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
