@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Coin from './Coin';
 import firebase from '../config/firebase';
-var db = firebase.firestore();
 
 class TrackedCoins extends Component {
     constructor(props){
@@ -14,7 +14,7 @@ class TrackedCoins extends Component {
     shouldComponentUpdate(prev, next){
         if(Object.keys(next).length === 0){
             return false;
-        }else if(next.coinDataLoaded == this.state.coinDataLoaded){
+        }else if(next.coinDataLoaded === this.state.coinDataLoaded){
             return false
         }else{
             return true;
@@ -23,19 +23,12 @@ class TrackedCoins extends Component {
 
     grabCoinData = (coin) => {
         let url = `https://api.coinmarketcap.com/v1/ticker/${coin}/?convert=USD`;
-        fetch(url).then((res)=>{
-            res.json().then((data)=>{
-                console.log(data)
-                this.setState({
-                    [coin]: data,
-                    coinDataLoaded: true
-                })
-                return data;
-            }).then(()=>{
-                setTimeout(this.grabCoinData, 300000);
-            })
-            .catch(err=>console.log(err))
-            return res;
+
+        axios.get(url)
+        .then((res)=>{
+            console.log(res.data)
+        }).then(()=>{
+            setTimeout(this.grabCoinData, 300000);
         }).catch((err)=>{
             console.log(err)
         })
