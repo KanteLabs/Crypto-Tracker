@@ -72,12 +72,6 @@ main#main{
 #current-market{
     margin-top: 1vh;
     font-family: 'Roboto';
-    h1.page-title{
-        color: black;
-        font-size: 2rem;
-        text-align: center;
-        margin: 2vh 0;
-    }
     ul{
         li{
             background: rgba(39,33,42,0.9);
@@ -107,6 +101,25 @@ section#portfolio{
         &:active{
             position: relative;
             top: 4px;
+        }
+    }
+
+    ul{
+        li{
+            background: rgba(39,33,42,0.9);
+            width: 90vw;
+            margin: 0 auto;
+            margin-bottom: 1.3vh;
+            border-radius: 5px;
+            padding: 1em 1.5em;
+            font-size: 0.775rem;
+            padding-bottom: 1.7em;
+            line-height: 1.5;
+            box-shadow: 4px 4px 15px #000;
+            .top-text, .bottom-text{
+                display: flex;
+                justify-content: space-between;
+            }
         }
     }
 }

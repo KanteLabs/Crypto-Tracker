@@ -33,7 +33,9 @@ class TrackedCoins extends Component {
                 coinApiData: coinApiData
             })
         }).then(()=>{
-            console.log(this.state.coinApiData)
+            this.setState({
+                coinDataLoaded: true
+            })
             setTimeout(this.grabCoinData, 300000);
         }).catch((err)=>{
             console.log(err)
@@ -50,7 +52,7 @@ class TrackedCoins extends Component {
                     return(
                         <ul key={i} id={`coin-list ${coin}`}>
                             {Object.values(coinData[coin]).map((item, x)=>{
-                                return <Coin coin={item} key={x} x={x} coinApiData={this.state.coinApiData}/>
+                                return <Coin coin={item} key={x} x={x} coinApiData={this.state.coinApiData} />
                             })}
                         </ul>
                     )
