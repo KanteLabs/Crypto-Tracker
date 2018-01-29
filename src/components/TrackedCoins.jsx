@@ -3,6 +3,7 @@ import axios from 'axios';
 import Coin from './Coin';
 import firebase from '../config/firebase';
 
+var coinApiData = []
 class TrackedCoins extends Component {
     constructor(props){
         super(props);
@@ -26,14 +27,15 @@ class TrackedCoins extends Component {
         let url = `https://api.coinmarketcap.com/v1/ticker/${coin}/?convert=USD`;
 
         axios.get(url).then((res)=>{
-            console.log(res.data)
-            this.setState({
-                coinApiData: {
-                    [res.data.name]: res.data
-                }
+            var name = res.data[0].name;
+            coinApiData.push({
+                [name]: res.data[0]
             })
-            return res.data;
+            this.setState({
+                coinApiData: coinApiData
+            })
         }).then(()=>{
+            console.log(this.state.coinApiData)
             setTimeout(this.grabCoinData, 300000);
         }).catch((err)=>{
             console.log(err)
@@ -47,7 +49,6 @@ class TrackedCoins extends Component {
             <div id="tracked-coins">
                 {Object.keys(coinData).map((coin, i)=>{
                     this.grabCoinData(coin)
-                    console.log("cat")
                     return(
                         <ul key={i} id={`coin-list ${coin}`}>
                             {Object.values(coinData[coin]).map((item, x)=>{
