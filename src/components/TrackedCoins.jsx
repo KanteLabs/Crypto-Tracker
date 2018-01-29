@@ -7,7 +7,8 @@ class TrackedCoins extends Component {
     constructor(props){
         super(props);
         this.state = {
-            coinDataLoaded: false
+            coinDataLoaded: false,
+            coinApiData: false
         }
     }
     
@@ -27,7 +28,9 @@ class TrackedCoins extends Component {
         axios.get(url).then((res)=>{
             console.log(res.data)
             this.setState({
-                [res.data.name]: res.data
+                coinApiData: {
+                    [res.data.name]: res.data
+                }
             })
             return res.data;
         }).then(()=>{
@@ -48,7 +51,7 @@ class TrackedCoins extends Component {
                     return(
                         <ul key={i} id={`coin-list ${coin}`}>
                             {Object.values(coinData[coin]).map((item, x)=>{
-                                return <Coin coin={item} key={x} x={x} />
+                                return <Coin coin={item} key={x} x={x} coinApiData={this.state.coinApiData}/>
                             })}
                         </ul>
                     )
