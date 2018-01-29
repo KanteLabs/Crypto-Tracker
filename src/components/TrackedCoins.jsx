@@ -3,7 +3,7 @@ import axios from 'axios';
 import Coin from './Coin';
 import firebase from '../config/firebase';
 
-var coinApiData = []
+var coinApiData = {}
 class TrackedCoins extends Component {
     constructor(props){
         super(props);
@@ -28,9 +28,7 @@ class TrackedCoins extends Component {
 
         axios.get(url).then((res)=>{
             var name = res.data[0].name;
-            coinApiData.push({
-                [name]: res.data[0]
-            })
+            coinApiData[name] = res.data[0]
             this.setState({
                 coinApiData: coinApiData
             })
