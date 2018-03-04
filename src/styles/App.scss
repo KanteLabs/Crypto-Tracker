@@ -72,7 +72,20 @@ section{
     &::-webkit-scrollbar {
         width: 1px;
         height: 1px;
+        }
     }
+}
+#current-market{
+    .page-title{
+        text-align: center;
+        color: white;
+        font-size: 2rem;
+        background: #34495e;
+        position: fixed;
+        padding: 1vh;
+        width: 100vw;
+        box-shadow: 0px 1px 4px -1px #000;
+        margin-top: -8vh;
     }
 }
 main#main{

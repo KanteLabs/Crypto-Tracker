@@ -4,6 +4,9 @@ const CurrentMarketValues = (props) => {
     const {data} = props;
     return(
         <div id="current-market">
+            <h1 className="page-title">
+                Top 10 Currencies
+            </h1>
             <ul className="coin-list">
                 {data.map((coin, i)=>{
                     return(
@@ -13,7 +16,7 @@ const CurrentMarketValues = (props) => {
                                 <p className="price-change" style={{color: coin.percent_change_1h > 0 ? 'green' : 'red'}}>{coin.percent_change_1h}%</p>
                             </div>
                             <div className="bottom-text">
-                                <p className="price-btc">Price BTC: {coin.price_btc}</p>
+                                <p className="price-btc">Price In BTC: {coin.price_btc}</p>
                                 <p className="price">USD: ${coin.price_usd}</p>
                             </div>
                         </li>
