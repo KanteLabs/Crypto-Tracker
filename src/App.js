@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
-import SideMenu from './components/SideMenu';
+import BottomMenu from './components/BottomMenu';
 import Home from './components/Home';
 import Login from './components/Login';
 import Portfolio from './components/Portfolio';

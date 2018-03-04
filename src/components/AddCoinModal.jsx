@@ -45,7 +45,7 @@ class AddCoinModal extends Component {
                         date: this.state.date,
                         coin: this.state.chosenCoin
                     }
-                }, {merge: true})
+                }, {merge: false})
                 .then((res)=>{
                     window.location.reload();
                 })

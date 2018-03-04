@@ -23,32 +23,11 @@ class TrackedCoins extends Component {
         }
     }
 
-    grabCoinData = (coin) => {
-        let url = `https://api.coinmarketcap.com/v1/ticker/${coin}/?convert=USD`;
-
-        axios.get(url).then((res)=>{
-            var name = res.data[0].name;
-            coinApiData[name] = res.data[0]
-            this.setState({
-                coinApiData: coinApiData
-            })
-        }).then(()=>{
-            this.setState({
-                coinDataLoaded: true
-            })
-            setTimeout(this.grabCoinData, 300000);
-        }).catch((err)=>{
-            console.log(err)
-        })
-    }
-
-
     render(){
         const { coinData } = this.props;
         return(
             <div id="tracked-coins">
                 {Object.keys(coinData).map((coin, i)=>{
-                    this.grabCoinData(coin)
                     return(
                         <ul key={i} id={`coin-list ${coin}`}>
                             {Object.values(coinData[coin]).map((item, x)=>{
