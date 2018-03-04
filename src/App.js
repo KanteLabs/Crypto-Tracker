@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar';
 import BottomMenu from './components/BottomMenu';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -46,14 +45,13 @@ class App extends Component {
     return (
       <Router>
         <main id="main">
-          <Navbar changeDrawerStatus={(status)=>this.changeDrawerStatus(status)}/>
-          <SideMenu openState={this.state.drawerStatus} changeDrawerStatus={(status)=>this.changeDrawerStatus(status)} authState={this.state.authState}/>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path="/portfolio" render={() => <Portfolio /> } />
             <Route exact path="/login" render={() => <Login /> } />
             <Route exact path="/ether-balance" render={() => <EtherBalance /> } />
           </Switch>
+          <BottomMenu authState={this.state.authState} />
         </main>
       </Router>
     );
