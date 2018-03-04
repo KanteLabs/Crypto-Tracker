@@ -4,10 +4,10 @@ const CurrentMarketValues = (props) => {
     const {data} = props;
     return(
         <div id="current-market">
-            <ul>
+            <ul className="coin-list">
                 {data.map((coin, i)=>{
                     return(
-                        <li key={i}>
+                        <li key={i} className="single-coin">
                             <div className="top-text">
                                 <p className="name">{coin.name} ({coin.symbol})</p>
                                 <p className="price-change" style={{color: coin.percent_change_1h > 0 ? 'green' : 'red'}}>{coin.percent_change_1h}%</p>
