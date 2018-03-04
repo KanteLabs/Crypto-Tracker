@@ -6,7 +6,7 @@ import Portfolio from './components/Portfolio';
 import EtherBalance from './components/EtherBalance';
 import { BrowserRouter as Router, Redirect, Switch, Route } from 'react-router-dom';
 import firebase from './config/firebase';
-import './App.css';
+import './styles/css/App.css';
 
 var db = firebase.firestore();
 
