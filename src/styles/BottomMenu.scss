@@ -7,4 +7,11 @@
     justify-content: space-around;
     align-items: center;
     flex-flow: row nowrap;
+    a{
+        text-decoration: none;
+        color: #bbb;
+        &:hover{
+            color: black;
+        }
+    }
 }
