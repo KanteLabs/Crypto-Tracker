@@ -1,2 +1,2 @@
-.menu-links{position:fixed;height:10vh;background:darkred;width:100vw}
+.menu-links{position:fixed;height:5vh;background:#2c3e50;width:100vw;display:flex;justify-content:space-around;align-items:center;flex-flow:row nowrap}
 /*# sourceMappingURL=BottomMenu.css.map */
