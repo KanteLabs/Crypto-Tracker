@@ -3,7 +3,7 @@
   margin-top: 8vh;
   color: white; }
   .coin-list .single-coin {
-    background: #2980b9;
+    background: #2c3e50;
     width: 90vw;
     margin: 0 auto;
     margin-bottom: 1.3vh;
@@ -16,5 +16,7 @@
     .coin-list .single-coin .top-text, .coin-list .single-coin .bottom-text {
       display: flex;
       justify-content: space-between; }
+    .coin-list .single-coin .price-change {
+      font-weight: bold; }
 
 /*# sourceMappingURL=CoinBlock.css.map */

@@ -3,7 +3,7 @@
     margin-top: 8vh;
     color: white;
     .single-coin{
-        background: #2980b9;
+        background: #2c3e50;
         width: 90vw;
         margin: 0 auto;
         margin-bottom: 1.3vh;
@@ -16,6 +16,9 @@
         .top-text, .bottom-text{
             display: flex;
             justify-content: space-between;
+        }
+        .price-change{
+            font-weight: bold;
         }
     }
 }

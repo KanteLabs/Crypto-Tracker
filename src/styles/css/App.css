@@ -19,7 +19,7 @@
   margin-top: 8vh;
   color: white; }
   .coin-list .single-coin {
-    background: #2980b9;
+    background: #2c3e50;
     width: 90vw;
     margin: 0 auto;
     margin-bottom: 1.3vh;
@@ -32,6 +32,8 @@
     .coin-list .single-coin .top-text, .coin-list .single-coin .bottom-text {
       display: flex;
       justify-content: space-between; }
+    .coin-list .single-coin .price-change {
+      font-weight: bold; }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -102,7 +104,7 @@ section.home {
   text-align: center;
   color: white;
   font-size: 2rem;
-  background: #2980b9;
+  background: #2c3e50;
   position: fixed;
   padding: 1vh;
   width: 100vw;
