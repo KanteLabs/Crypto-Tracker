@@ -26,7 +26,7 @@ class Home extends Component{
     }
 
     grabTopFiveCoins(){
-        let url = 'https://api.coinmarketcap.com/v1/ticker/?limit=10';
+        let url = 'https://api.coinmarketcap.com/v1/ticker/?limit=20';
         fetch(url).then((res)=>{
             res.json().then((data)=>{
                 console.log(data)
