@@ -8,6 +8,13 @@ class BottomMenu extends Component {
             
         }
     }
+    componentDidMount() {
+        this.getCurrentPage();
+    }
+
+    getCurrentPage = () =>{
+        console.log(window.location)
+    }
 
     render(){
         return(

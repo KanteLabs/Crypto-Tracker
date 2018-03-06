@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import firebase from '../config/firebase';
-import {Dialog, AutoComplete, FlatButton, TextField} from 'material-ui';
 import coinSymbols from '../config/coinSymbols';
 
 var db = firebase.firestore();
@@ -69,22 +68,10 @@ class AddCoinModal extends Component {
         })
     }
     render() {
-        const actions = [
-            <FlatButton
-                label="Cancel"
-                primary={true}
-                onClick={this.handleClose}
-            />
-        ];
-
-        const dataSourceConfig = {
-            text: 'textKey',
-            value: 'valueKey',
-          };
 
         return (
             <div id="dialog-holder">
-                <Dialog
+                {/* <Dialog
                     title="Add A Coin"
                     actions={actions}
                     modal={true}
@@ -132,7 +119,7 @@ class AddCoinModal extends Component {
                             type="Submit"
                         />
                     </form>
-                </Dialog>
+                </Dialog> */}
             </div>
         )
     }

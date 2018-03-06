@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import firebase from '../config/firebase';
-import {FlatButton, TextField} from 'material-ui';
 
 var db = firebase.firestore();
 const etherscanKey = require('../config/api-keys')
@@ -63,7 +62,7 @@ class EtherBalance extends Component {
             <section id="ether-balance">
                 <div className="balance-form">
                     <form onSubmit={this.handleSubmit} >
-                        <TextField
+                        {/* <TextField
                             hintText="Enter Address to Track"
                             floatingLabelText="ETH Address"
                             required={true}
@@ -76,7 +75,7 @@ class EtherBalance extends Component {
                             primary={true}
                             onClick={this.handleSubmit}
                             type="Submit"
-                        />
+                        /> */}
                     </form>
                 </div>
             </section>

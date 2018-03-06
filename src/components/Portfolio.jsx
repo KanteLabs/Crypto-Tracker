@@ -3,7 +3,6 @@ import firebase from '../config/firebase';
 import AddCoinModal from './AddCoinModal';
 import TrackedCoins from './TrackedCoins';
 import { Redirect } from 'react-router-dom';
-import {Paper} from 'material-ui';
 
 var db = firebase.firestore();
 
@@ -85,13 +84,13 @@ class Portfolio extends Component {
         return(
             <section id="portfolio">
                 {redirect ? <Redirect to={page} />: null}
-                <div className="page-cointainer">
+                {/* <div className="page-cointainer">
                     <Paper style={paper} zDepth={3} id="add-coin" onClick={this.handleAddCoinModal}>
                         <i className="material-icons">add_circle</i><p> Add A Coin</p>
                     </Paper>
                     <AddCoinModal modalOpen={this.state.modalOpen} closeModal={(status)=>this.closeModal(status)}/>
                     {this.renderCoins()}
-                </div>
+                </div> */}
             </section>
         )
     }
