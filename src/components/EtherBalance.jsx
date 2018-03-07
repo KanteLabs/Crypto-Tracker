@@ -9,23 +9,27 @@ class EtherBalance extends Component {
     constructor(props){
         super(props);
         this.state = {
-
+            ethAddress: false
         }
     }
 
-    componentWillMount() {
-        // axios.get(`https://api.etherscan.io/api?module=account&action=balance&address=&tag=latest&apikey=${etherscanKey}`).then((data)=>{
-        //     console.log(data, data.data)
-        // }).catch((err)=>{
-        //     console.log(err)
-        // })
-        // firebase.auth().onAuthStateChanged((user)=>{
-        //     if(user){
-        //         db.collection('users').doc(user.uid).get().then((res)=>{
-        //             console.log(res.data())
-        //         })
-        //     }
-        // })
+    componentDidMount() {
+        firebase.auth().onAuthStateChanged((user)=>{
+            if(user){
+                db.collection('users').doc(user.uid).get().then((res)=>{
+                    if(res.exists){
+                        console.log(res.data())
+                        this.setState({
+                            eth_address: res.data()
+                        })
+                        setInterval(this.updatePage(), 5000)
+                        // this.updatePage()
+                    }else{
+                        return null;
+                    }
+                })
+            }
+        })
     }
 
     handleSubmit=(e)=>{
@@ -56,26 +60,33 @@ class EtherBalance extends Component {
             [name]: value
         })
     }
+
+    updatePage = () => {
+        axios.get(`https://api.etherscan.io/api?module=account&action=balance&address${this.state.ethAddress}=&tag=latest&apikey=${etherscanKey}`).then((data)=>{
+            console.log(data, data.data)
+        }).catch((err)=>{
+            console.log(err)
+        })
+    }
     
     render(){
         return(
             <section id="ether-balance">
                 <div className="balance-form">
                     <form onSubmit={this.handleSubmit} >
-                        {/* <TextField
-                            hintText="Enter Address to Track"
-                            floatingLabelText="ETH Address"
-                            required={true}
+                        <label htmlFor="address">ETH Address</label>
+                        <input
+                            placeholder="Enter Address to Track"
+                            required
                             onChange={(e)=>this.handleChange(e)}
                             name="address"
                             type="text"
                         />
-                        <FlatButton
+                        <button
                             label="Submit"
-                            primary={true}
                             onClick={this.handleSubmit}
                             type="Submit"
-                        /> */}
+                        />
                     </form>
                 </div>
             </section>
