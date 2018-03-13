@@ -32,7 +32,6 @@
         firebase.initializeApp(config);
         export default firebase;
     ```
-7. In the root folder of the project run npm install to install back end dependencies
 
 ### Screenshots
 
